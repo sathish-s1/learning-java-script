@@ -1,0 +1,42 @@
+
+.canvas1 , .canvas3 ,.canvas4
+{
+margin: auto; 
+background: lightgray; 
+width: 100px; 
+height: 100px; 
+}
+.canvas2 
+{
+    margin: auto; 
+    background: lightgray; 
+    width: 100px; 
+    height: 100px; 
+    }
+button
+{
+    background-color: rgb(87, 48, 230);
+    border: .3rem solid transparent;
+    border-radius: 50%;
+    color: white;
+    transition: 2s;
+    padding: 10px 10px;
+    box-shadow: 0 9px #999;
+
+}
+button:hover
+{
+    background-color: rgb(38, 33, 194);
+}
+button:active
+{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #999;
+    
+    transform: translateY(40px);
+}
+.Effects
+{
+    display: flex;
+    justify-content: space-around;
+}
