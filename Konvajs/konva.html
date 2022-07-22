@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta charset="utf-8"/>
+     <script src="https://unpkg.com/konva@8.3.5/konva.min.js"></script>  
+     <link rel="stylesheet" href="SNAKE.css">
+     <title>Konva</title>
+  </head>
+
+  <body>
+
+    <div id="container"></div>
+
+    <div id="menu">
+
+       <button id="pulse_button">pulse</button>
+       <button id="delete_button">delete</button>
+    </div>
+
+<script>
+
+         var width = window.innerWidth;
+         var height = window.innerHeight;
+
+         var stage = new Konva.Stage({
+            
+          container: 'container',
+          width: width,
+          height: height,
+         
+        });
+            
+        var layer = new Konva.Layer();
+
+
+        stage.add(layer);
+
+        var shape = new Konva.Circle({
+          x:stage.width() / 2,
+          y:stage.height () / 2,
+          radius:50,
+          fill :'red',
+          shadowBlur : 20,
+        });
+    layer.add(shape);
+
+
+    stage.on('dblclick', function()
+    {
+      var newshape = new Konva.Circle({
+        x:stage.getPointerPosition().x,
+        Y:stage.getPointerPosition().y,
+        radius: Math.random() * 60,
+        fill: Konva.Util.getRandomColor(),
+        shadowBlur:20,
+        draggable: true,   
+
+      })
+      layer.add(newshape);
+    })
+ let currentshape;
+
+ var menunode = document.getElementById('menu')
+ document.getElementById('pulse_button').addEventListener('click',()=>
+ {
+  currentshape.to({
+
+    scaleX:2,
+    scaleY:2,
+
+    onFinish: () =>
+    {
+      currentshape.to({scaleX: 1,scaleY: 1});
+    }
+
+  });
+ });
+ 
+
+ 
+</script>
+
+
+
+    </body>
+  </html>
